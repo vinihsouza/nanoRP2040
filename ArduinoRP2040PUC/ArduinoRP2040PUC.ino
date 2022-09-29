@@ -5,8 +5,6 @@
 float atualX, atualY, atualZ;
 float posiX, posiY, posiZ;
 
-unsigned long lastMillis;
-
 void zeraLeds();
 void mostraZ(float Zvalue);
 
@@ -25,15 +23,12 @@ void loop() {
     if (atualZ < posiZ-0.5) {
       mostraZ(atualZ);
       digitalWrite(LEDR, HIGH);
-      //lastMillis = millis();
     } else if (atualZ < posiZ-0.2) {
       mostraZ(atualZ);
       digitalWrite(LEDR, HIGH);
       digitalWrite(LEDG, HIGH);
-      //lastMillis = millis();
     } else if (atualZ < posiZ-0.1 || atualZ > posiZ+0.1) {
       mostraZ(atualZ);
-      zeraLeds();
       digitalWrite(LEDG, HIGH);
     }
 }
